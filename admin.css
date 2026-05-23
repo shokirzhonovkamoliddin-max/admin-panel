@@ -25,35 +25,7 @@ body {
   border-right: 1px solid #2c2c2c;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
-}
 
-.sidebar ul {
-  margin-top: 20px;
-}
-
-.sidebar li {
-  margin-bottom: 15px;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: cyan;
-  padding-left: 5px;
-}
-
-.main {
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  padding: 20px;
-  overflow-y: auto;
-}
 * {
   margin: 0;
   padding: 0;
