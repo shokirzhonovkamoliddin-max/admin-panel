@@ -55,7 +55,7 @@ function showProducts(products) {
 
         <td>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onclick='deletepro(${id})' >Delete</button>
         </td>
       </tr>
     `;
@@ -93,6 +93,52 @@ elform.addEventListener("submit", (e) => {
       return response.json();
     })
     .then((data) => {
+      Toastify({
+        text: "succesfully added",
+        duration: 3000,
+        gravity: "top",
+        position: "left",
+        style: {
+          background: "linear-gradient(to right, #188c09, #58a514)",
+        },
+      }).showToast();
+
       console.log(data);
     });
 });
+
+// delete item
+
+function deletepro(id) {
+  if (window.confirm(" Are u shure delet it ?")) {
+    fetch(`https://fakestoreapi.com/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+      if(data) {
+            Toastify({
+        text: "succesfully deleted ",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #188c09, #58a514)",
+        },
+      }).showToast();
+
+      }        
+      });
+  } else {
+        Toastify({
+        text: "some error occured",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #680707, #450707)",
+        },
+      }).showToast();
+    
+  }
+}
