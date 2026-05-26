@@ -2,7 +2,7 @@ const API = "https://fakestoreapi.com/products";
 
 const tbody = document.querySelector("tbody");
 
-const getProducts = async (url) => {
+const getProducts = (url) => {
   fetch(url, {
     method: "GET",
   })
@@ -61,3 +61,38 @@ function showProducts(products) {
     `;
   });
 }
+
+const elform = document.querySelector(".form");
+
+elform.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const image = elform["img"].value.trim();
+  const title = elform["title"].value.trim();
+  const price = elform["price"].value.trim();
+  const category = elform["category"].value.trim();
+  const descrption = elform["description"].value.trim();
+
+  const produkt = {
+    image: image,
+    title: title,
+    price: price,
+    category: category,
+    description: descrption,
+  };
+
+  fetch(API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(produkt),
+  })
+    .then((response) => {
+      console.log(response.status);
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+});
