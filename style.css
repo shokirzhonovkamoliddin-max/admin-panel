@@ -23,6 +23,12 @@ body {
   align-items: center;
   gap: 30px;
   border-radius: 10px;
+  transition: all 0.3s ease;
+
+}
+
+.form:hover{
+  transform: scale(1.05);
 }
 
 .username,
@@ -49,6 +55,6 @@ body {
 }
 
 .btn:hover {
-  transform: scale(1.02);
+  transform: scale(1.1);
   background-color: rgb(14, 181, 14);
 }
