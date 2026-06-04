@@ -54,8 +54,8 @@ function showProducts(products) {
         <td>${description}</td>
 
         <td>
-          <button>Edit</button>
-          <button onclick='deletepro(${id})' >Delete</button>
+          <button class = "edit" >Edit</button>
+          <button class = "delete" onclick='deletepro(${id})' >Delete</button>
         </td>
       </tr>
     `;
@@ -131,7 +131,7 @@ function deletepro(id) {
       });
   } else {
         Toastify({
-        text: "some error occured",
+        text: " not deleted ",
         duration: 3000,
         gravity: "top",
         position: "right",
@@ -142,3 +142,7 @@ function deletepro(id) {
     
   }
 }
+
+
+
+
