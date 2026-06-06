@@ -55,7 +55,7 @@ a {
 
 li {
   list-style: none;
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 table {
@@ -79,7 +79,7 @@ td {
 }
 
 .edit {
-  width: 100px;
+  width: 70px;
   height: 40px;
   background-color: green;
   color: white;
@@ -94,7 +94,7 @@ td {
 }
 
 .delete {
-  width: 100px;
+  width: 70px;
   height: 40px;
   background-color: red;
   color: white;
@@ -108,7 +108,50 @@ td {
   transform: scale(1.1);
 }
 
-
 li:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.view {
+  width: 70px;
+  height: 40px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.view:hover {
+  background-color: darkblue;
+  transform: scale(1.1);
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_text {
+  width: 500px;
+  min-height: 250px;
+  background: #2b2a2a;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  line-height: 35px;
+}
+
+.modal_text button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: red;
+  color: white;
+  margin-top: 15px;
 }

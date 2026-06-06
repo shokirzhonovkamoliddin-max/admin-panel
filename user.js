@@ -1,7 +1,8 @@
 const api = "https://fakestoreapi.com/users";
 
 const tbody = document.querySelector("tbody");
-
+const modal = document.querySelector(".modal");
+const text = document.querySelector(".modal_text");
 const getUsers = (url) => {
   fetch(url)
     .then((response) => response.json())
@@ -39,6 +40,7 @@ function showUsers(users) {
 
         <td>
           <button class="edit" >Edit</button>
+          <button class="view" onclick='view(${id})' >View</button>
           <button class="delete" onclick='deleteuser(${id})' >Delete</button>
         </td>
       </tr>
@@ -66,8 +68,7 @@ function deleteuser(id) {
 
           getUsers(api);
         }
-      })
-      
+      });
   } else {
     Toastify({
       text: " deleteni bosmading",
@@ -79,4 +80,25 @@ function deleteuser(id) {
       },
     }).showToast();
   }
+}
+
+function view(id) {
+  fetch(`https://fakestoreapi.com/users/${id}`)
+    .then((res) => res.json())
+    .then((user) => {
+      modal.style.display = "flex";
+
+      text.innerHTML = `
+        <p> ${user.email}</p>
+        <p> ${user.phone}</p>
+        <p> ${user.name.firstname} ${user.name.lastname}</p>
+        <p> ${user.address.city}</p>
+
+        <button onclick="closeModal()">Yopish</button>
+      `;
+    });
+}
+
+function closeModal() {
+  modal.style.display = "none";
 }
